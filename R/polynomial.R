@@ -8,7 +8,7 @@
 #' @param b b (P50)
 
 polynomial <- function(psi,a = 2, b = -2){
-  PLC <- 100 * (1-(1 + abs(psi).^a/abs(b)).^(-1))
+  PLC <- 100 * (1-(1 + abs(psi)^a/abs(b))^(-1))
   return(PLC)
 }
 
@@ -45,11 +45,11 @@ invert.polynomial <- function(x,a = 2, b = -2){
 }
 
 
-#' @name slope.weibull
-#' @title slope.weibull
+#' @name slope.polynomial
+#' @title slope.polynomial
 #' @author Félicien Meunier
 #' @export
-#' @description Returns slope of weibull
+#' @description Returns slope of polynomial
 #' @param x PLC value
 #' @param a a
 #' @param b b (P50)
