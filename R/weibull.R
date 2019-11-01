@@ -20,7 +20,7 @@ weibull <- function(psi,lambda = 2, k = 2){
 #' @param data data.frame with water potential ("psi") and PLC ("PLC")
 #' @param lambda lambda
 #' @param k k
-weibul.comp <- function(data,lambda = 2, k = 2){
+weibull.comp <- function(data,lambda = 2, k = 2){
   psi <- data[["psi"]]
   PLC_mes <- data[["PLC"]] ;
   PLC_mod <- weibull(psi,lambda,k)

@@ -37,6 +37,12 @@ best.params1 <- coef(m1)
 best.params2 <- coef(m2)
 best.params3 <- coef(m3)
 
+RMSE <- rep(NA,4)
+RMSE[1] <- weibull.comp(data.test,a = best.params1["k"],b = best.params1["lambda"])$RMSE
+RMSE[2] <- sigmoidal.comp(data.test,a = best.params1["a"],b = best.params1["b"])
+RMSE[3] <- polynomial.comp(data.test,a = best.params1["a"],b = best.params1["b"])
+RMSE[4] <- polynomial2.comp(data.test,a = best.params1["a"],b = best.params1["b"])
+
 psi_extr <- extremum(data.test[["psi"]])
 psi <- seq(psi_extr[1],psi_extr[2],length.out = 1000)
 
@@ -44,5 +50,5 @@ plot(data.test[["psi"]],data.test[["PLC"]],pch=19,xlab = "Psi",ylab = "PLC",ylim
 lines(psi,weibull(psi,k = best.params0["k"],lambda = best.params0["lambda"]),lty = 1)
 lines(psi,sigmoidal(psi,a = best.params1["a"],b = best.params1["b"]),lty = 2)
 lines(psi,polynomial(psi,a = best.params2["a"],b = best.params2["b"]),lty = 3)
-lines(psi,polynomial2(psi,a = best.params3["a"],b = best.params3["b"]),lty = 3)
+lines(psi,polynomial2(psi,a = best.params3["a"],b = best.params3["b"]),lty = 4)
 
