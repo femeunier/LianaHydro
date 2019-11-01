@@ -4,11 +4,10 @@
 #' @export
 #' @description Returns Weibull PLC
 #' @param psi water potential
-#' @param param vector of lambda and k
+#' @param lambda lambda
+#' @param k k
+weibull <- function(psi,lambda = 2, k = 2){
 
-weibull <- function(psi,param){
-  lambda <- param[1]
-  k <- param[2]
   PLC <- 100*(1-exp(-((abs(psi)/lambda)^k)))
   return(PLC)
 }
@@ -19,12 +18,12 @@ weibull <- function(psi,param){
 #' @export
 #' @description Returns RMSE
 #' @param data data.frame with water potential ("psi") and PLC ("PLC")
-#' @param param vector of lambda and k
-#'
-weibul.comp <- function(data,param){
+#' @param lambda lambda
+#' @param k k
+weibul.comp <- function(data,lambda = 2, k = 2){
   psi <- data[["psi"]]
   PLC_mes <- data[["PLC"]] ;
-  PLC_mod <- weibull(psi,param)
+  PLC_mod <- weibull(psi,lambda,k)
   N <- length(PLC_mes)
   RMSE <- sqrt(sum((PLC_mes-PLC_mod)^2)/(N-1))
   return(list(RMSE = RMSE,PLC_mod = PLC_mod))
@@ -36,11 +35,9 @@ weibul.comp <- function(data,param){
 #' @export
 #' @description Returns inverse weibull
 #' @param x PLC
-#' @param param vector of lambda and k
-#'
-invert.weibull <- function(x,param){
-  lambda <- param[1]
-  k <- param[2]
+#' @param lambda lambda
+#' @param k k
+invert.weibull <- function(x,lambda = 2, k = 2){
 
   psi <- -abs((-log(1 - x/100))^(1/k)*lambda)
   return(psi)
@@ -53,14 +50,12 @@ invert.weibull <- function(x,param){
 #' @export
 #' @description Returns slope of weibull
 #' @param x PLC value
-#' @param param vector of lambda and k
-#'
-slope.weibull <- function(x,param){
+#' @param lambda lambda
+#' @param k k
+slope.weibull <- function(x,lambda = 2, k = 2){
 
-  lambda <- param[1]
-  k <- param[2]
 
-  psi <- invert.weibull(x,param)
+  psi <- invert.weibull(x,lambda,k)
   S <- (100*k*exp(-(abs(psi)/lambda)^k)*sign(psi)*(abs(psi)/lambda)^(k - 1))/lambda
 
   return(S)

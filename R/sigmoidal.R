@@ -4,11 +4,10 @@
 #' @export
 #' @description Returns sigmoidal PLC
 #' @param psi water potential
-#' @param param vector of a and b (P50)
+#' @param a a
+#' @param b b (P50)
 
-sigmoidal <- function(psi,param){
-  a <- param[1]
-  b <- param[2]
+sigmoidal <- function(psi,a = 2, b = -2){
   PLC <-  100 * (1./(1 + exp(a*((psi) - (b)) )))
   return(PLC)
 }
@@ -19,12 +18,13 @@ sigmoidal <- function(psi,param){
 #' @export
 #' @description Returns RMSE
 #' @param data data.frame with water potential ("psi") and PLC ("PLC")
-#' @param param vector of a and b
+#' @param a a
+#' @param b b (P50)
 #'
-sigmoidal.comp <- function(data,param){
+sigmoidal.comp <- function(data,a = 2, b = -2){
   psi <- data[["psi"]]
   PLC_mes <- data[["PLC"]] ;
-  PLC_mod <- sigmoidal(psi,param)
+  PLC_mod <- sigmoidal(psi,a,b)
   N <- length(PLC_mes)
   RMSE <- sqrt(sum((PLC_mes-PLC_mod)^2)/(N-1))
   return(list(RMSE = RMSE,PLC_mod = PLC_mod))
@@ -36,11 +36,9 @@ sigmoidal.comp <- function(data,param){
 #' @export
 #' @description Returns inverse sigmoidal
 #' @param x PLC
-#' @param param vector of a and b
-#'
-invert.sigmoidal <- function(x,param){
-  a <- param[1]
-  b <- param[2]
+#' @param a a
+#' @param b b (P50)
+invert.sigmoidal <- function(x,a = 2, b = -2){
 
   psi <- - abs(((log(100/x  -1 )) /a + b ))
   return(psi)
@@ -53,15 +51,12 @@ invert.sigmoidal <- function(x,param){
 #' @export
 #' @description Returns slope of weibull
 #' @param x PLC value
-#' @param param vector of lambda and k
-#'
-slope.sigmoidal <- function(x,param){
+#' @param a a
+#' @param b b (P50)
+slope.sigmoidal <- function(x,a = 2, b = -2){
 
-  a <- param[1]
-  b <- param[2]
-
-  psi <- invert.sigmoidal(x,param)
-  S <- -(100*a*exp(-a*(b - psi)))/(exp(-a*(b - psi)) + 1)^2
+  psi <- invert.sigmoidal(x,a,b)
+  S <- -(100*a*exp(a*(psi-b)))/(exp(a*(psi-b)) + 1)^2
 
   return(S)
 }
