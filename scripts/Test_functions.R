@@ -40,3 +40,17 @@ plot(psi_prim-psi_prim,type='l')
 
 Slopes <- slope.polynomial(c(12,50,88),a = a, b = b)
 
+
+#########################################################
+a <- 2
+b <- -2
+
+psi <- seq(-0.001,-10,length.out = 1000)
+PLC <- polynomial2(psi,a = a, b = b)
+plot(psi,PLC,type='l')
+
+psi_prim <- invert.polynomial2(PLC,a = a, b = b)
+plot(psi_prim-psi_prim,type='l')
+
+Slopes <- slope.polynomial2(c(12,50,88),a = a, b = b)
+
