@@ -8,7 +8,7 @@
 #' @param b b (P50)
 
 polynomial2 <- function(psi,a = 2, b = -2){
-  PLC <- 100 * (1-1/(1 + (abs(psi)/abs(P50))^a))
+  PLC <- 100 * (1-1/(1 + (abs(psi)/abs(b))^a))
   return(PLC)
 }
 
@@ -56,7 +56,7 @@ invert.polynomial2 <- function(x,a = 2, b = -2){
 slope.polynomial2 <- function(x,a = 2, b = -2){
 
   psi <- invert.polynomial2(x,a,b)
-  S <- (100*Kexp*sign(psi)*(abs(psi)/abs(P50))^(Kexp - 1))/(abs(P50)*((abs(psi)/abs(P50))^Kexp + 1)^2)
+  S <- (100*Kexp*sign(psi)*(abs(psi)/abs(b))^(Kexp - 1))/(abs(b)*((abs(psi)/abs(b))^Kexp + 1)^2)
 
   return(S)
 }
