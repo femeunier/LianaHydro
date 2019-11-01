@@ -19,10 +19,24 @@ a <- 2
 b <- -2
 
 psi <- seq(-0.001,-10,length.out = 1000)
-PLC <- sigmoidal(psi,param = c(a,b))
+PLC <- sigmoidal(psi,a = a, b = b)
 plot(psi,PLC,type='l')
 
-psi_prim <- invert.sigmoidal(PLC,param = c(a,b))
+psi_prim <- invert.sigmoidal(PLC,a = a, b = b)
 plot(psi_prim-psi_prim,type='l')
 
-Slopes <- slope.sigmoidal(c(12,50,88),param = c(a,b))
+Slopes <- slope.sigmoidal(c(12,50,88),a = a, b = b)
+
+#########################################################
+a <- 2
+b <- -2
+
+psi <- seq(-0.001,-10,length.out = 1000)
+PLC <- polynomial(psi,a = a, b = b)
+plot(psi,PLC,type='l')
+
+psi_prim <- invert.polynomial(PLC,a = a, b = b)
+plot(psi_prim-psi_prim,type='l')
+
+Slopes <- slope.polynomial(c(12,50,88),a = a, b = b)
+

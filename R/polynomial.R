@@ -40,7 +40,7 @@ polynomial.comp <- function(data,a = 2, b = -2){
 #' @param b b (P50)
 invert.polynomial <- function(x,a = 2, b = -2){
 
-  psi <- -abs((abs(P50)*(-1 + 1/(1 - x/100))^(1/a) ))
+  psi <- -abs((abs(b)*(-1 + 1/(1 - x/100))^(1/a) ))
   return(psi)
 }
 
@@ -56,7 +56,7 @@ invert.polynomial <- function(x,a = 2, b = -2){
 slope.polynomial <- function(x,a = 2, b = -2){
 
   psi <- invert.polynomial(x,a,b)
-  S <- (100*a*abs(psi)^(a - 1)*sign(psi))/(abs(P50)*(abs(psi)^a/abs(P50) + 1)^2);
+  S <- (100*a*abs(psi)^(a - 1)*sign(psi))/(abs(b)*(abs(psi)^a/abs(b) + 1)^2);
 
   return(S)
 }
