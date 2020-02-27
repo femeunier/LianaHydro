@@ -2,9 +2,10 @@
 % Please edit documentation in R/weibull.R
 \name{weibul.comp}
 \alias{weibul.comp}
+\alias{weibull.comp}
 \title{weibul.comp}
 \usage{
-weibul.comp(data, lambda = 2, k = 2)
+weibull.comp(data, lambda = 2, k = 2)
 }
 \arguments{
 \item{data}{data.frame with water potential ("psi") and PLC ("PLC")}
