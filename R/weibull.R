@@ -26,7 +26,8 @@ weibull.comp <- function(data,lambda = 2, k = 2){
   PLC_mod <- weibull(psi,lambda,k)
   N <- length(PLC_mes)
   RMSE <- sqrt(sum((PLC_mes-PLC_mod)^2)/(N-1))
-  return(list(RMSE = RMSE,PLC_mod = PLC_mod))
+  r2 <- summary(lm(data = data.frame(y = PLC_mod,x = PLC_mes),formula = y ~x))$r.squared
+  return(list(RMSE = RMSE,PLC_mod = PLC_mod,r2 = r2))
 }
 
 #' @name invert.weibull

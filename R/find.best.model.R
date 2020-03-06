@@ -11,6 +11,5 @@ find.best.model <- function(All.models){
   best.modelpos <- which.min(unlist(lapply(All.models,'[[','RMSE')))
   best.model <- extract.model(All.models,best.modelpos)
 
-
   return(list(best.model))
 }

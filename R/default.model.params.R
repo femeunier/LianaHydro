@@ -17,6 +17,9 @@ default.model.params <- function(fun.name){
          polynomial2 = {
            list(2,-2)
          },
+         cumnorm = {
+           list(-2,1)
+         },
          polynomial = {
            list(2,-2)
          },

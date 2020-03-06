@@ -16,7 +16,7 @@ plot.models <- function(models,add =TRUE,col = 'black',highlight = FALSE){
 
   for (i in seq(1,Nmodels)){
     if (!add & i == 1){
-      plot(models[[i]][["psi.all"]],models[[i]][["PLC.predict.all"]],col = col[i])
+      plot(models[[i]][["psi.all"]],models[[i]][["PLC.predict.all"]],col = col[i],type='l')
 
     } else{
       lines(models[[i]][["psi.all"]],models[[i]][["PLC.predict.all"]],col= col[i])

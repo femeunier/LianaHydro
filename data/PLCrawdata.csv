@@ -1,0 +1,373 @@
+Id,psi,PLC,species,GF
+1,-4.0114274,99.65913,C. bilberganius,Tree
+1,-3.918722,93.01907,C. bilberganius,Tree
+1,-1.9869955,95.33315,C. bilberganius,Tree
+1,-1.9881116,85.48315,C. bilberganius,Tree
+1,-1.4426746,87.826904,C. bilberganius,Tree
+1,-1.2407895,82.46931,C. bilberganius,Tree
+1,-0.9457863,74.11188,C. bilberganius,Tree
+1,-0.94627154,69.82926,C. bilberganius,Tree
+1,-0.74419224,66.18471,C. bilberganius,Tree
+1,-0.72914976,61.4735,C. bilberganius,Tree
+1,-0.43385538,55.685635,C. bilberganius,Tree
+1,-0.43434063,51.403023,C. bilberganius,Tree
+1,-0.43451044,49.90411,C. bilberganius,Tree
+1,-0.43552947,40.91062,C. bilberganius,Tree
+1,0,0,C. bilberganius,Tree
+1,0,0,C. bilberganius,Tree
+1,0,0,C. bilberganius,Tree
+1,0,0,C. bilberganius,Tree
+2,-1.9838657,94.287186,E costaricensis,Tree
+2,-1.9381073,85.75732,E costaricensis,Tree
+2,-1.4573776,66.98351,E costaricensis,Tree
+2,-1.4581053,60.586857,E costaricensis,Tree
+2,-0.97642934,50.128696,E costaricensis,Tree
+2,-0.97681755,46.717148,E costaricensis,Tree
+2,-0.9470964,34.136402,E costaricensis,Tree
+2,-0.51222205,23.039572,E costaricensis,Tree
+2,-0.46568727,21.332802,E costaricensis,Tree
+2,-0.46605122,18.134476,E costaricensis,Tree
+2,0,0,E costaricensis,Tree
+2,0,0,E costaricensis,Tree
+3,-4.9568014,85.181335,E nesotica,Tree
+3,-3.5243895,79.82033,E nesotica,Tree
+3,-2.5126102,73.82863,E nesotica,Tree
+3,-1.4707702,58.241447,E nesotica,Tree
+3,-0.47857046,17.06908,E nesotica,Tree
+3,0,0,E nesotica,Tree
+3,0,0,E nesotica,Tree
+4,-8.005531,92.922264,F. occidentalis,Tree
+4,-8.00609,88.01823,F. occidentalis,Tree
+4,-5.9818764,81.7917,F. occidentalis,Tree
+4,-5.998787,70.064995,F. occidentalis,Tree
+4,-6.0305943,64.30875,F. occidentalis,Tree
+4,-6.0308857,61.750122,F. occidentalis,Tree
+4,-3.9745247,64.26491,F. occidentalis,Tree
+4,-3.9758348,52.751087,F. occidentalis,Tree
+4,-3.9765627,46.354523,F. occidentalis,Tree
+4,-3.9771693,41.024048,F. occidentalis,Tree
+4,-2.015188,35.43851,F. occidentalis,Tree
+4,-2.0160615,27.76263,F. occidentalis,Tree
+4,-2.0168378,20.939625,F. occidentalis,Tree
+4,-2.0172262,17.528122,F. occidentalis,Tree
+4,-1.0353135,22.837671,F. occidentalis,Tree
+4,-1.035823,18.360075,F. occidentalis,Tree
+4,-1.0365509,11.963507,F. occidentalis,Tree
+4,-1.036745,10.257755,F. occidentalis,Tree
+4,-0.58517826,8.968811,F. occidentalis,Tree
+4,-0.52297014,8.114607,F. occidentalis,Tree
+4,-0.58563924,4.9176517,F. occidentalis,Tree
+4,-0.47660524,4.915327,F. occidentalis,Tree
+4,0,0,F. occidentalis,Tree
+4,0,0,F. occidentalis,Tree
+4,0,0,F. occidentalis,Tree
+4,0,0,F. occidentalis,Tree
+5,-2.129487,97.492546,G. superba,Tree
+5,-1.9895431,95.3619,G. superba,Tree
+5,-2.0218844,84.937035,G. superba,Tree
+5,-1.5385828,88.756546,G. superba,Tree
+5,-1.5399901,76.41612,G. superba,Tree
+5,-1.1039026,75.98131,G. superba,Tree
+5,-1.0109301,71.724,G. superba,Tree
+5,-1.0274041,63.851994,G. superba,Tree
+5,-1.0289084,50.660503,G. superba,Tree
+5,-0.5927723,50.651222,G. superba,Tree
+5,-0.51503646,49.37297,G. superba,Tree
+5,-0.47032136,31.712402,G. superba,Tree
+5,0,0,G. superba,Tree
+5,0,0,G. superba,Tree
+5,0,0,G. superba,Tree
+6,-8.0452,97.39495,I. Vera,Tree
+6,-8.045686,93.12143,I. Vera,Tree
+6,-8.046025,90.12997,I. Vera,Tree
+6,-8.030449,90.12964,I. Vera,Tree
+6,-6.0380917,77.69383,I. Vera,Tree
+6,-6.0383825,75.12972,I. Vera,Tree
+6,-6.0385766,73.42031,I. Vera,Tree
+6,-6.0396686,63.804897,I. Vera,Tree
+6,-4.0472383,52.010117,I. Vera,Tree
+6,-4.047651,48.37763,I. Vera,Tree
+6,-4.047942,45.813515,I. Vera,Tree
+6,-4.0180025,35.129055,I. Vera,Tree
+6,-3.0686255,28.271122,I. Vera,Tree
+6,-3.0690622,24.424955,I. Vera,Tree
+6,-3.0081158,12.457772,I. Vera,Tree
+6,-2.0263002,16.923998,I. Vera,Tree
+6,-2.026858,12.009452,I. Vera,Tree
+6,-2.0269551,11.154749,I. Vera,Tree
+6,-1.0455279,12.20216,I. Vera,Tree
+6,-1.045819,9.638049,I. Vera,Tree
+6,-1.0462315,6.005558,I. Vera,Tree
+6,-0.36038965,10.264432,I. Vera,Tree
+6,-0.32962528,6.8449516,I. Vera,Tree
+6,0,0,I. Vera,Tree
+6,0,0,I. Vera,Tree
+6,0,0,I. Vera,Tree
+7,-2.512683,94.66708,M. argentea,Tree
+7,-2.5135808,86.692894,M. argentea,Tree
+7,-2.5140417,82.59804,M. argentea,Tree
+7,-1.5481179,84.30138,M. argentea,Tree
+7,-1.4396176,79.55762,M. argentea,Tree
+7,-1.5494765,72.23233,M. argentea,Tree
+7,-1.5499133,68.353,M. argentea,Tree
+7,-1.0826247,68.342926,M. argentea,Tree
+7,-1.0832312,62.954956,M. argentea,Tree
+7,-0.99161744,46.57352,M. argentea,Tree
+7,-0.5259059,32.554737,M. argentea,Tree
+7,-0.5264882,27.382288,M. argentea,Tree
+7,-0.2780925,20.04928,M. argentea,Tree
+7,-0.2784807,16.60098,M. argentea,Tree
+7,-0.27889317,12.937164,M. argentea,Tree
+7,0,0,M. argentea,Tree
+7,0,0,M. argentea,Tree
+7,0,0,M. argentea,Tree
+8,-4.2061377,95.07238,P. reticulatum,Tree
+8,-4.20486,89.45686,P. reticulatum,Tree
+8,-4.1887937,87.72969,P. reticulatum,Tree
+8,-2.1967435,81.33624,P. reticulatum,Tree
+8,-2.1956134,76.36867,P. reticulatum,Tree
+8,-1.2222637,69.499245,P. reticulatum,Tree
+8,-1.2214284,65.82757,P. reticulatum,Tree
+8,-1.1896877,64.101074,P. reticulatum,Tree
+8,-1.1559324,53.519344,P. reticulatum,Tree
+8,-0.93586016,50.721066,P. reticulatum,Tree
+8,-0.935074,47.265366,P. reticulatum,Tree
+8,-0.91797525,41.002586,P. reticulatum,Tree
+8,-0.60253334,32.376877,P. reticulatum,Tree
+8,-0.6017472,28.921177,P. reticulatum,Tree
+8,-0.6323087,25.464123,P. reticulatum,Tree
+8,0,0,P. reticulatum,Tree
+8,0,0,P. reticulatum,Tree
+8,0,0,P. reticulatum,Tree
+9,-6.1724906,98.456085,S. daniensis,Tree
+9,-4.149093,92.11865,S. daniensis,Tree
+9,-4.2716827,79.90763,S. daniensis,Tree
+9,-4.177198,77.98445,S. daniensis,Tree
+9,-3.2194238,70.744835,S. daniensis,Tree
+9,-3.2024724,65.17802,S. daniensis,Tree
+9,-2.2648435,77.42394,S. daniensis,Tree
+9,-2.1794481,46.80611,S. daniensis,Tree
+9,-2.0989661,37.601696,S. daniensis,Tree
+9,-1.2545941,46.417446,S. daniensis,Tree
+9,-1.1723925,29.718336,S. daniensis,Tree
+9,-0.7503783,34.875683,S. daniensis,Tree
+9,-0.6073977,26.530489,S. daniensis,Tree
+9,-1.1223246,16.444029,S. daniensis,Tree
+9,-0.7126432,7.039578,S. daniensis,Tree
+9,0,0,S. daniensis,Tree
+9,0,0,S. daniensis,Tree
+9,0,0,S. daniensis,Tree
+9,0,0,S. daniensis,Tree
+10,-8.232149,97.720146,T. amazonia,Tree
+10,-6.2082605,89.22301,T. amazonia,Tree
+10,-6.129007,85.36361,T. amazonia,Tree
+10,-4.1465874,52.61487,T. amazonia,Tree
+10,-3.1321614,71.75782,T. amazonia,Tree
+10,-3.1292133,58.88194,T. amazonia,Tree
+10,-2.141369,57.207535,T. amazonia,Tree
+10,-2.1546845,46.906155,T. amazonia,Tree
+10,-2.1342447,26.090816,T. amazonia,Tree
+10,-1.6533676,48.00067,T. amazonia,Tree
+10,-1.6973429,34.693577,T. amazonia,Tree
+10,-1.64983,32.549614,T. amazonia,Tree
+10,-1.1796151,32.569794,T. amazonia,Tree
+10,-1.1456634,21.197443,T. amazonia,Tree
+10,-1.144779,17.334679,T. amazonia,Tree
+10,-0.7211434,15.42146,T. amazonia,Tree
+10,-0.5937875,6.84292,T. amazonia,Tree
+10,0,0,T. amazonia,Tree
+10,0,0,T. amazonia,Tree
+11,-6.0104985,97.83394,V. bilbergiana,Tree
+11,-5.03937,96.38989,V. bilbergiana,Tree
+11,-5.0656166,89.16968,V. bilbergiana,Tree
+11,-4.1207347,92.41877,V. bilbergiana,Tree
+11,-3.9895012,80.50542,V. bilbergiana,Tree
+11,-3.5695539,74.00722,V. bilbergiana,Tree
+11,-3.070866,76.534294,V. bilbergiana,Tree
+11,-3.070866,65.34296,V. bilbergiana,Tree
+11,-2.5984251,61.37184,V. bilbergiana,Tree
+11,-2.0209973,58.122746,V. bilbergiana,Tree
+11,-2.0209973,41.516247,V. bilbergiana,Tree
+11,-1.5485564,32.851986,V. bilbergiana,Tree
+11,-1.1023622,35.379063,V. bilbergiana,Tree
+11,-0.9711286,6.137184,V. bilbergiana,Tree
+11,-0.5511811,17.689531,V. bilbergiana,Tree
+11,0,0,V. bilbergiana,Tree
+11,0,0,V. bilbergiana,Tree
+12,-6.0892386,96.09929,X. panamensis,Tree
+12,-6.0367455,92.55319,X. panamensis,Tree
+12,-6.0367455,82.2695,X. panamensis,Tree
+12,-5.0656166,87.58865,X. panamensis,Tree
+12,-5.0656166,82.97872,X. panamensis,Tree
+12,-5.0656166,76.950356,X. panamensis,Tree
+12,-4.0682416,76.950356,X. panamensis,Tree
+12,-4.0682416,71.98582,X. panamensis,Tree
+12,-4.0682416,68.43971,X. panamensis,Tree
+12,-3.070866,63.475178,X. panamensis,Tree
+12,-2.0997376,53.90071,X. panamensis,Tree
+12,-2.0997376,51.06383,X. panamensis,Tree
+12,-2.0209973,45.03546,X. panamensis,Tree
+12,-0.9973753,42.907803,X. panamensis,Tree
+12,-0.9973753,30.851065,X. panamensis,Tree
+12,-0.5511811,9.929078,X. panamensis,Tree
+12,-0.49868765,7.8014183,X. panamensis,Tree
+12,-0.49868765,2.8368795,X. panamensis,Tree
+12,0,0,X. panamensis,Tree
+12,0,0,X. panamensis,Tree
+13,-4.0815825,95.757,Z. panamense,Tree
+13,-4.0337257,92.11881,Z. panamense,Tree
+13,-4.0793223,85.90703,Z. panamense,Tree
+13,-2.6184628,72.05102,Z. panamense,Tree
+13,-2.599546,57.919113,Z. panamense,Tree
+13,-2.5208821,56.63769,Z. panamense,Tree
+13,-1.5789293,50.03994,Z. panamense,Tree
+13,-1.5917534,37.619736,Z. panamense,Tree
+13,-1.5756865,35.907368,Z. panamense,Tree
+13,-0.80712837,33.58483,Z. panamense,Tree
+13,-0.8053104,25.662024,Z. panamense,Tree
+13,-0.8030011,15.597919,Z. panamense,Tree
+13,-0.6454767,12.178554,Z. panamense,Tree
+13,-0.56696016,11.53952,Z. panamense,Tree
+13,-0.51988953,11.327404,Z. panamense,Tree
+13,0,0,Z. panamense,Tree
+13,0,0,Z. panamense,Tree
+13,0,0,Z. panamense,Tree
+16,-6.0415053,99.03204,,Liana
+16,-6.0411224,96.34386,,Liana
+16,-6.0402036,89.89221,,Liana
+16,-3.9860678,94.517365,,Liana
+16,-4.083111,88.869545,,Liana
+16,-4.0828424,86.98781,,Liana
+16,-4.0230236,79.19365,,Liana
+16,-2.0471656,83.816696,,Liana
+16,-2.065165,72.79461,,Liana
+16,-2.0642076,66.07414,,Liana
+16,-1.0476712,73.62842,,Liana
+16,-1.0461011,62.606857,,Liana
+16,-1.0451436,55.88639,,Liana
+16,-1.0444926,51.316475,,Liana
+16,-0.53507555,47.029053,,Liana
+16,-0.28063512,46.767075,,Liana
+16,-0.61136174,33.04838,,Liana
+16,-0.53208846,26.061203,,Liana
+16,-0.2972557,26.067514,,Liana
+16,-0.2959919,17.1965,,Liana
+16,0,0,,Liana
+16,0,0,,Liana
+17,-5.024008,98.7911,,Liana
+17,-5.0235834,95.83408,,Liana
+17,-5.0423417,89.650696,,Liana
+17,-3.0384202,89.70456,,Liana
+17,-3.037108,80.56468,,Liana
+17,-3.0356412,70.34952,,Liana
+17,-3.0340202,59.05908,,Liana
+17,-1.0096418,53.468254,,Liana
+17,-1.0476992,44.864956,,Liana
+17,-1.0470816,40.563835,,Liana
+17,-1.0458465,31.961594,,Liana
+17,-0.49524862,28.481722,,Liana
+17,-0.49493983,26.331161,,Liana
+17,-0.49436086,22.29886,,Liana
+17,-0.49304852,13.158978,,Liana
+17,-0.25721586,12.627676,,Liana
+17,-0.25694567,10.745936,,Liana
+17,-0.2564825,7.5200953,,Liana
+17,0,0,,Liana
+17,0,0,,Liana
+17,0,0,,Liana
+18,-4.0486755,96.38414,,Liana
+18,-4.049095,93.458626,,Liana
+18,-3.0340078,89.70823,,Liana
+18,-2.0188446,86.489746,,Liana
+18,-2.0197983,79.84084,,Liana
+18,-1.5529191,66.79653,,Liana
+18,-1.0255774,66.7825,,Liana
+18,-1.0276374,52.420876,,Liana
+18,-0.5397776,49.482372,,Liana
+18,-0.5023174,38.31118,,Liana
+18,-0.50266075,35.917576,,Liana
+18,-0.23048313,27.133753,,Liana
+18,-0.23075016,25.27206,,Liana
+18,-0.34828052,22.88157,,Liana
+18,-0.03894791,0.7989071,,Liana
+18,0,0,,Liana
+18,0,0,,Liana
+19,-3.9977963,98.83564,,Liana
+19,-3.0041606,97.936844,,Liana
+19,-3.0056803,95.291504,,Liana
+19,-3.0073524,92.38163,,Liana
+19,-3.9976442,99.100174,,Liana
+19,-3.9976442,99.100174,,Liana
+19,-1.9936167,92.53891,,Liana
+19,-1.9957445,88.835434,,Liana
+19,-1.9981762,84.60289,,Liana
+19,-1.0450443,81.06288,,Liana
+19,-0.9685962,78.40929,,Liana
+19,-0.9748276,67.5634,,Liana
+19,-0.50215626,75.97898,,Liana
+19,-0.21585576,65.366684,,Liana
+19,-0.4902635,62.750225,,Liana
+19,-0.26137507,53.995853,,Liana
+19,-0.26274294,51.615047,,Liana
+19,0.019643977,0.26247126,,Liana
+19,0,0,,Liana
+19,0,0,,Liana
+20,-0.78125,80.69705,,Liana
+20,-0.48828125,69.1689,,Liana
+20,-0.76171875,66.48794,,Liana
+20,-0.2734375,20.911528,,Liana
+20,0,0,,Liana
+21,-3.0559468,99.093,,Liana
+21,-3.0577996,92.65868,,Liana
+21,-2.0754964,92.60601,,Liana
+21,-2.0182567,86.70473,,Liana
+21,-2.0191057,83.75567,,Liana
+21,-1.5069958,88.28592,,Liana
+21,-1.5108556,74.881096,,Liana
+21,-1.5120134,70.85965,,Liana
+21,-0.9990544,78.33896,,Liana
+21,-1.0221742,66.27567,,Liana
+21,-0.8033657,75.64746,,Liana
+21,-1.0446764,56.357155,,Liana
+21,-0.5149275,53.91584,,Liana
+21,-0.79182506,47.496273,,Liana
+21,-0.5029237,27.373234,,Liana
+21,-0.51025724,1.9040647,,Liana
+21,0,0,,Liana
+21,0,0,,Liana
+22,-3.0390391,96.33932,,Liana
+22,-3.0394223,93.6655,,Liana
+22,-3.0401115,88.85261,,Liana
+22,-1.9837087,86.417915,,Liana
+22,-2.0035846,84.27937,,Liana
+22,-2.0048866,75.18837,,Liana
+22,-1.5355275,73.03675,,Liana
+22,-1.5372125,61.271923,,Liana
+22,-1.0285996,59.921406,,Liana
+22,-1.0295954,52.969463,,Liana
+22,-1.02994,50.56302,,Liana
+22,-0.42478228,40.118885,,Liana
+22,-0.4647636,34.237514,,Liana
+22,-0.46602738,25.413893,,Liana
+22,-0.46736774,16.055508,,Liana
+22,-0.32973093,20.597345,,Liana
+22,-0.17424805,13.106451,,Liana
+22,-0.31238273,5.0886393,,Liana
+22,-0.2931963,2.4142911,,Liana
+22,0,0,,Liana
+22,0,0,,Liana
+23,-4.143544,92.87235,,Liana
+23,-3.966959,93.671906,,Liana
+23,-2.0855744,86.91906,,Liana
+23,-1.577195,76.98588,,Liana
+23,-2.1071815,72.978645,,Liana
+23,-2.1075659,70.29769,,Liana
+23,-1.4824625,53.927067,,Liana
+23,-1.482924,50.709927,,Liana
+23,-1.1116835,41.584705,,Liana
+23,-1.0924218,39.17132,,Liana
+23,-0.99503654,34.611076,,Liana
+23,-0.54705673,13.68757,,Liana
+23,0,0,,Liana
+23,0,0,,Liana
+23,0,0,,Liana
