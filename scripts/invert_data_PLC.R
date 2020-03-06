@@ -9,13 +9,15 @@ data.file <- "./data/rawdata.csv"
 data <- read.csv(data.file,header = TRUE) %>% rename(psi = Psi..MPa.,
                                                      PLC = PLC....)
 
-data.test <- data %>% filter(Liana.id == 6)
+data.test <- data %>% filter(Liana.id == 5) %>% dplyr::select(psi,PLC) %>% mutate(psi = pmin(0,-abs(psi)))
 
 
 All.models <-
-  opt.data(data.test,
-         function.names = c("weibull","sigmoidal","polynomial","polynomial2"))
+  opt.data(data = data.test)
+length(All.models)
 All.models <- add.properties(All.models,x = c(12,50,88))
+
+
 best.model <-
   find.best.model(All.models)
 
