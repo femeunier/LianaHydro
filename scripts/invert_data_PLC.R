@@ -5,12 +5,11 @@ library(BayesianTools)
 library(minpack.lm)
 library(LianaHydro)
 
-data.file <- "./data/rawdata.csv"
-data <- read.csv(data.file,header = TRUE) %>% rename(psi = Psi..MPa.,
-                                                     PLC = PLC....)
+data.file <- "./data/lianarawdata.csv"
+data <- read.csv(data.file,header = TRUE) %>% rename(psi = psi,
+                                                     PLC = PLC)
 
-data.test <- data %>% filter(Liana.id == 5) %>% dplyr::select(psi,PLC) %>% mutate(psi = pmin(0,-abs(psi)))
-
+data.test <- data %>% filter(Id == 5) %>% dplyr::select(psi,PLC) %>% mutate(psi = pmin(0,-abs(psi)))
 
 All.models <-
   opt.data(data = data.test)

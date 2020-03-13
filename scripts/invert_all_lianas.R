@@ -5,6 +5,8 @@ library(BayesianTools)
 library(minpack.lm)
 library(LianaHydro)
 library(ggplot2)
+library(reshape2)
+library(zoo)
 
 file <- "/home/femeunier/Documents/projects/LianaHydro/data/VC.all.csv"
 dataVC <- read.csv(file)
@@ -195,14 +197,15 @@ N = 50
 signif.all <- data.frame()
 for (i in seq(1,N)){
   print(i)
-  signif <- bootstrap %>% group_by(psi,GF) %>% sample_n(15) %>% ungroup() %>% group_by(psi) %>% summarise(PLC = kruskal.test(formula = PLC ~ GF)$p.value,
+  signif <- bootstrap %>% group_by(psi,GF) %>% sample_n(5) %>% ungroup() %>% group_by(psi) %>% summarise(PLC = kruskal.test(formula = PLC ~ GF)$p.value,
                                                                                                           k  = kruskal.test(formula = k ~ GF)$p.value) %>% mutate(num = i)
   signif.all <- rbind(signif.all,
                       signif)
 }
 
 signif <- signif.all %>% group_by(psi) %>% summarise(alpha_PLC = mean(PLC),
-                                                     alpha_k = mean(k))
+                                                     alpha_k = mean(k)) %>% mutate(alpha_PLC = rollapply(alpha_PLC,10,mean,na.rm=TRUE,partial=TRUE),
+                                                                                   alpha_k = rollapply(alpha_k,10,mean,na.rm=TRUE,partial=TRUE))
 
 bootstrap_sum <- bootstrap %>% filter(k > 0)  %>% group_by(GF,psi) %>% summarise(PLC_m = mean(PLC),
                                                                                  PLC_low = quantile(PLC,0.025),
@@ -211,34 +214,99 @@ bootstrap_sum <- bootstrap %>% filter(k > 0)  %>% group_by(GF,psi) %>% summarise
                                                                                  k_low = quantile(k,0.025),
                                                                                  k_high = quantile(k,0.975))
 
+pos <- bootstrap_sum %>% group_by(GF) %>% summarise(P50low = psi[which.min(abs(PLC_low - 50))],
+                                                        P50high = psi[which.min(abs(PLC_high - 50))],
+                                                        P50m = psi[which.min(abs(PLC_m - 50))])
 
+
+P50l <- pos %>% filter(GF == "Liana")
+P50t <- pos %>% filter(GF == "Tree")
+
+slopes <- data.summary %>% group_by(GF) %>% summarise(ax50m = mean(ax50))
+intercept <- c(50-slopes$ax50m[1]*P50l$P50m,50-slopes$ax50m[2]*P50t$P50m)
+psi_x <- c(0.5,1.5)
+y = slopes$ax50m[1]*psi_x*c(P50l$P50m)+intercept[1]
+
+psi_x2 <- c(0.6,1.4)
+y2 = slopes$ax50m[2]*psi_x2*c(P50t$P50m)+intercept[2]
+
+w = 1; Top = 100 ; bottom = 1
 # PLC curves
-ggplot(data = bootstrap_sum,aes(x = psi,y = PLC_m,color = as.factor(GF),
-                                fill = as.factor(GF),ymin = PLC_low,ymax = PLC_high)) +
-  geom_ribbon(alpha = 0.1,colour = NA) +
-  geom_line() +
+ggplot() +
+  geom_ribbon(data = bootstrap_sum,aes(x = psi,color = as.factor(GF),
+                                       fill = as.factor(GF),ymin = PLC_low,ymax = PLC_high),alpha = 0.1,colour = NA) +
+  geom_ribbon(data = data.frame(x = c(P50l$P50low,P50l$P50high),
+                                ymin = bottom -c(w,w),
+                                ymax = bottom +c(w,w)),aes(x = x,ymin = ymin, ymax = ymax), fill = Cols[1], colour = NA,alpha = 0.1) +
+  geom_ribbon(data = data.frame(x = c(P50l$P50m,P50l$P50m)*c(0.99,1.01),
+                                ymin = bottom -c(w,w),
+                                ymax = bottom +c(w,w)),aes(x = x,ymin = ymin, ymax = ymax), fill = Cols[1], colour = NA,alpha = 1) +
+  geom_ribbon(data = data.frame(x = c(P50t$P50low,P50t$P50high),
+                                ymin = bottom -c(w,w),
+                                ymax = bottom +c(w,w)),aes(x = x,ymin = ymin, ymax = ymax), fill = Cols[2], colour = NA,alpha = 0.1) +
+  geom_ribbon(data = data.frame(x = c(P50t$P50m,P50t$P50m)*c(0.995,1.01),
+                                ymin = bottom -c(w,w),
+                                ymax = bottom +c(w,w)),aes(x = x,ymin = ymin, ymax = ymax), fill = Cols[2], colour = NA,alpha = 1) +
+  geom_ribbon(data = data.frame(x = signif$psi[signif$alpha_PLC<0.01],
+                                ymin = Top -w,
+                                ymax = Top + w),aes(x = x,ymin = ymin, ymax = ymax), fill = "darkgrey", colour = NA,alpha = 0.5) +
+  geom_ribbon(data = data.frame(x = signif$psi[signif$alpha_PLC<0.05],
+                                ymin = Top -w,
+                                ymax = Top + w),aes(x = x,ymin = ymin, ymax = ymax), fill = "lightgrey", colour = NA,alpha = 0.5) +
+  geom_segment(aes(x = psi_x[1]*P50l$P50m,xend = psi_x[2]*P50l$P50m,
+                   y = y[1], yend = y[2]), colour = Cols[1],linetype = 2) +
+  geom_segment(aes(x = psi_x2[1]*P50t$P50m,xend = psi_x2[2]*P50t$P50m,
+                   y = y2[1], yend = y2[2]), colour = Cols[2],linetype = 2) +
+ geom_line(data = bootstrap_sum,aes(x = psi,y = PLC_m,color = as.factor(GF))) +
   scale_color_manual(values = Cols) +
   scale_fill_manual(values = Cols) +
   scale_x_continuous(expand = c(0,0)) +
-  scale_y_continuous(limits = c(0,100),expand = c(0.01,0.01)) +
-  theme_bw()
+  scale_y_continuous(limits = c(0,102),expand = c(0.0,0.0)) +
+  theme_bw() + theme(legend.position = "none")
+
+ggplot(data = dataVC, aes(x = GrowthForm,y = ksat,
+                              fill = as.factor(GrowthForm)))+
+  geom_boxplot(alpha = 0.3) +
+  scale_color_manual(values = Cols) +
+  scale_fill_manual(values = Cols) +
+  scale_y_log10() +
+  labs(x = "") +
+  theme_bw() + theme(legend.position = "none",
+                     axis.text.x = element_blank())
+
+PmdL <- quantile(dataVC %>% filter(!is.na(Pmd) & GrowthForm == "Liana") %>% pull(Pmd),c(0.025,0.5,0.975))
+PmdT <- quantile(dataVC %>% filter(!is.na(Pmd) & GrowthForm == "Tree") %>% pull(Pmd),c(0.025,0.5,0.975))
+
 
 # k curves
-ggplot(data = bootstrap_sum,aes(x = psi,y = k_m,color = as.factor(GF),
-                                fill = as.factor(GF),ymin = k_low,ymax = k_high)) +
-  geom_ribbon(alpha = 0.1,colour = NA) +
-  geom_line() +
+Top = 35 ; w = 4 ; bottom  = 0.003 ; wbot = 0.0002 ; bottom2 = bottom  - 2*wbot; wbot2 = 0.00001
+ggplot() +
+  geom_ribbon(data = bootstrap_sum,aes(x = psi,color = as.factor(GF),
+                                       fill = as.factor(GF),ymin = k_low,ymax = k_high),alpha = 0.1,colour = NA) +
+  geom_line(data = bootstrap_sum,aes(x = psi,y = k_m,color = as.factor(GF))) +
   scale_color_manual(values = Cols) +
   scale_fill_manual(values = Cols) +
+  geom_ribbon(data = data.frame(x = signif$psi[signif$alpha_k<0.01],
+                                ymin = Top -w,
+                                ymax = Top + w),aes(x = x,ymin = ymin, ymax = ymax), fill = "darkgrey", colour = NA,alpha = 0.5) +
+  geom_ribbon(data = data.frame(x = signif$psi[signif$alpha_k<0.05],
+                                ymin = Top -w,
+                                ymax = Top + w),aes(x = x,ymin = ymin, ymax = ymax), fill = "lightgrey", colour = NA,alpha = 0.5) +
+  geom_ribbon(data = data.frame(x = c(PmdL[1],PmdL[3]),
+                                ymin = bottom -c(wbot,wbot),
+                                ymax = bottom +c(wbot,wbot)),aes(x = x,ymin = ymin, ymax = ymax), fill = Cols[1], colour = NA,alpha = 0.1) +
+  geom_ribbon(data = data.frame(x = c(PmdL[2],PmdL[2])*c(0.995,1.01),
+                                ymin = bottom -c(wbot,wbot),
+                                ymax = bottom +c(wbot,wbot)),aes(x = x,ymin = ymin, ymax = ymax), fill = Cols[1], colour = NA,alpha = 1) +
+  geom_ribbon(data = data.frame(x = c(PmdT[1],PmdT[3]),
+                                ymin = bottom2 -c(wbot,wbot),
+                                ymax = bottom2 +c(wbot,wbot)),aes(x = x,ymin = ymin, ymax = ymax), fill = Cols[2], colour = NA,alpha = 0.1) +
+  geom_ribbon(data = data.frame(x = c(PmdT[2],PmdT[2])*c(0.99,1.01),
+                                ymin = bottom2 -c(wbot,wbot),
+                                ymax = bottom2 +c(wbot,wbot)),aes(x = x,ymin = ymin, ymax = ymax), fill = Cols[2], colour = NA,alpha = 1) +
   scale_x_continuous(expand = c(0,0)) +
   scale_y_log10(expand = c(0.01,0.01)) +
-  theme_bw()
-
-
-quantile(dataVC %>% filter(!is.na(p50) & GrowthForm == "Liana") %>% pull(p50),c(0.025,0.5,0.975))
-quantile(dataVC %>% filter(!is.na(p50) & GrowthForm == "Tree") %>% pull(p50),c(0.025,0.5,0.975))
+  theme_bw() + theme(legend.position = "none")
 
 
 
-quantile(dataVC %>% filter(!is.na(Pmd) & GrowthForm == "Liana") %>% pull(Pmd),c(0.025,0.5,0.975))
-quantile(dataVC %>% filter(!is.na(Pmd) & GrowthForm == "Tree") %>% pull(Pmd),c(0.025,0.5,0.975))
