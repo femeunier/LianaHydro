@@ -4,7 +4,7 @@
 \alias{extract.model}
 \title{extract.model}
 \usage{
-extract.model(all.models, pos)
+\method{extract}{model}(all.models, pos)
 }
 \arguments{
 \item{all.models}{all.models}

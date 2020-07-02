@@ -4,8 +4,8 @@
 \alias{opt.data}
 \title{opt.data}
 \usage{
-opt.data(data = data, function.names = c("weibull", "sigmoidal",
-  "polynomial", "polynomial2"))
+opt.data(data = data, function.names = c("cumnorm", "weibull",
+  "sigmoidal", "polynomial", "polynomial2"))
 }
 \arguments{
 \item{data}{data}

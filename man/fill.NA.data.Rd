@@ -4,7 +4,7 @@
 \alias{fill.NA.data}
 \title{fill.NA.data}
 \usage{
-fill.NA.data(data.in = data)
+\method{fill}{NA.data}(data.in = data)
 }
 \arguments{
 \item{data.in}{data.in}
