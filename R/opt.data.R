@@ -24,11 +24,21 @@ opt.data <-
     # print(default)
 
     fun <- function2test[[i]]
-    m <- tryCatch(nlsLM(data = data,
-               PLC ~ do.call(fun,list(psi,param1,param2)),
-               start=list(param1 = default[[1]], param2 = default[[2]]), control = nls.control(maxiter = 500, tol = 1e-05, minFactor = 1/1024/10,
-                                                                                               printEval = TRUE, warnOnly = TRUE)),
-               error = function(err){NA})
+    if (function.names[i]=="cumnorm"){
+      m <- tryCatch(nlsLM(data = data,
+                          PLC ~ do.call(fun,list(psi,param1,param2)),
+                          lower = c(-Inf,0),
+                          start=list(param1 = default[[1]], param2 = default[[2]]), control = nls.control(maxiter = 500, tol = 1e-05, minFactor = 1/1024/10,
+                                                                                                          printEval = TRUE, warnOnly = TRUE)),
+                    error = function(err){NA})
+    } else {
+      m <- tryCatch(nlsLM(data = data,
+                          PLC ~ do.call(fun,list(psi,param1,param2)),
+                          start=list(param1 = default[[1]], param2 = default[[2]]), control = nls.control(maxiter = 500, tol = 1e-05, minFactor = 1/1024/10,
+                                                                                                          printEval = TRUE, warnOnly = TRUE)),
+                    error = function(err){NA})
+    }
+
 
     if (is.list(m)){
 

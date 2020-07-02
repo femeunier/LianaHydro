@@ -8,6 +8,7 @@ library(scatterpie)
 library(LianaHydro)
 library(minpack.lm)
 library(stringr)
+library(lsr)
 
 filePV <- "/home/femeunier/Documents/projects/LianaHydro/data/PV.all.csv"
 dataPV <- read.csv(filePV,stringsAsFactors = FALSE,na.strings=c("","NA")) %>% filter(Organ == "Leaf") %>% dplyr::select(Species,GrowthForm,p0,tlp,rwc.tlp,epsil,Cft,wd,sla,MAP,MAT,Reference,Biome,Long,Lat,Organ) %>%
@@ -22,12 +23,16 @@ data <- correct.obs(data)
 data <- add.properties.data(data)
 
 vars <- c("kl","ksat","Al.As","ax","p50","p12","p88","Pmd","Ppd","tlp","wd","sla","MAP","MAT")
-hlines <- -(c(3,7,10,12)+0.5)
 
 Cohensd <- data.frame()
 
 rmin = 0.05
 rmax = 0.15
+
+
+anova1 <- aov( ksat ~ GrowthForm, data = data %>% mutate(kl = log10(kl)))                # run the ANOVA
+summary( anova1 )                                    # print the ANOVA table
+etaSquared( anova1 )                                 # effect size
 
 results <-
   map_dfr(vars,function(var){
@@ -60,32 +65,3 @@ results <-
                                                                                                         pvalue < 0.05 ~ "*",
                                                                                                         TRUE ~ "N.S."))
 
-Nmin = min(results$N)
-Nmax = max(results$N)
-
-Cols <- c(rgb(0,0,139/255),rgb(0.10,0.50,0.00))
-ggplot(data = results) +
-  geom_errorbarh(data = results,aes(xmin = cohenlow,xmax = cohenhigh,
-                                    y = -id),height = 0.) +
-  geom_scatterpie(aes(y=-id, x=cohensd,r = r),data = results,
-                  cols=c("nliana", "ntree")) +
-  scale_fill_manual(values = Cols) +
-  geom_vline(xintercept = 0,linetype=3) +
-  geom_hline(yintercept = hlines,linetype=2) +
-  scale_y_continuous(breaks = seq(-1,-length(vars),-1),labels = vars,name = "",sec.axis = dup_axis(labels = results$signif)) +
-  scale_x_continuous(name = "Cohen d [-]") +
-  geom_scatterpie_legend((results$r), x = -1, y = -1,n = 2,
-                         labeller = function(x) x= round(1/100*(Nmin + (Nmax-Nmin)*(x- rmin)/(rmax-rmin)))*100) +
-  theme_bw() + theme(legend.position = "none",
-                     text = element_text(size = 16))
-
-ggsave(plot = last_plot(),
-       filename = "./Figures/Cohensd.png", dpi = 300, width = 6, height = 10)
-
-
-# Tref <- unique(data %>% filter(!is.na(p50) & GrowthForm=="Tree") %>% pull(Reference))
-# Lref <- unique(data %>% filter(!is.na(p50) & GrowthForm=="Liana") %>% pull(Reference))
-# I <- intersect(Tref,Lref)
-#
-# effsize::cohen.d(formula = p50 ~ GrowthForm,data= data %>% filter(Reference == I[5]),
-#                  na.rm=TRUE,paired = FALSE,hedges.correction = TRUE,noncentral=TRUE)

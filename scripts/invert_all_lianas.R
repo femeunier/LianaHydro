@@ -94,28 +94,6 @@ data.sum <- invert.PLC %>% group_by(GF,psi) %>% summarise(PLC_m = mean(PLC,na.rm
                                                  k_low = quantile(k,0.025,na.rm = TRUE),
                                                  k_high = quantile(k,0.975,na.rm = TRUE))
 
-# # PLC curves no bootstraping
-# ggplot(data = data.sum,aes(x = psi,y = PLC_m,color = as.factor(GF),
-#                                 fill = as.factor(GF),ymin = PLC_low,ymax = PLC_high)) +
-#   geom_ribbon(alpha = 0.1,colour = NA) +
-#   geom_line() +
-#   scale_color_manual(values = rev(Cols)) +
-#   scale_fill_manual(values = rev(Cols)) +
-#   scale_x_continuous(expand = c(0,0)) +
-#   scale_y_continuous(limits = c(0,100),expand = c(0.01,0.01)) +
-#   theme_bw()
-#
-# ggplot(data = data.sum,aes(x = psi,y = k_m,color = as.factor(GF),
-#                            fill = as.factor(GF),ymin = k_low,ymax = k_high)) +
-#   geom_ribbon(alpha = 0.1,colour = NA) +
-#   geom_line() +
-#   scale_color_manual(values = rev(Cols)) +
-#   scale_fill_manual(values = rev(Cols)) +
-#   scale_x_continuous(expand = c(0,0)) +
-#   scale_y_log10(expand = c(0.01,0.01)) +
-#   theme_bw()
-
-
 
 # bootstraping
 

@@ -41,7 +41,8 @@ polynomial.comp <- function(data,a = 2, b = -2){
 #' @param b b (P50)
 invert.polynomial <- function(x,a = 2, b = -2){
 
-  psi <- -abs((abs(b)*(-1 + 1/(1 - x/100))^(1/a) ))
+  # psi <- -abs((abs(b)*(-1 + 1/(1 - x/100))^(1/a) ))
+  psi <- -abs(((1/(1-x/100)-1)*abs(b))^(1/a))
   return(psi)
 }
 
